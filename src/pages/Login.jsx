@@ -33,7 +33,17 @@ function Login() {
   const navigate = useNavigate();
 
   return (
-    <>
+    <LoginLayout>
+      <Logo />
+      <Heading as="h4">Log in to your account</Heading>
+      <LoginForm />
+      {/* <Button onClick={() => setDisplaySignUp(!displaySignUp)}>Sign-up!</Button> */}
+    </LoginLayout>
+  );
+}
+
+{
+  /* <>
       {displaySignUp === false ? (
         <LoginLayout>
           <Logo />
@@ -51,8 +61,7 @@ function Login() {
           />
         </Box>
       )}
-    </>
-  );
+    </> */
 }
 
 export default Login;
