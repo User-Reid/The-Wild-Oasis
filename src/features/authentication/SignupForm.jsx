@@ -4,13 +4,15 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useForm } from "react-hook-form";
 import { useSignup } from "./useSignup";
+import { useNavigate } from "react-router-dom";
 
 // Email regex: /\S+@\S+\.\S+/
 
-function SignupForm() {
+function SignupForm({ displaySignUp, setDisplaySignUp }) {
   const { signup, isSigningUp } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
   const { errors } = formState;
+  const navigate = useNavigate();
 
   function onSubmit({ fullName, email, password }) {
     signup(
@@ -82,7 +84,11 @@ function SignupForm() {
           variation="secondary"
           type="reset"
           disabled={isSigningUp}
-          onClick={reset}
+          onClick={
+            displaySignUp === true
+              ? () => setDisplaySignUp(!displaySignUp)
+              : reset
+          }
         >
           Cancel
         </Button>

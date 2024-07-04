@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { StyleSheetManager } from "styled-components";
 import { Toaster } from "react-hot-toast";
+import { DarkModeProvider } from "./features/context/DarkModeContext";
 
 import Dashboard from "./pages/Dashboard";
 import Bookings from "./pages/Bookings";
@@ -18,7 +19,6 @@ import isPropValid from "@emotion/is-prop-valid";
 import Booking from "./pages/Booking";
 import Checkin from "./pages/Checkin";
 import ProtectedRoute from "./ui/ProtectedRoute";
-import { DarkModeProvider } from "./features/context/DarkModeContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
